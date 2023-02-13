@@ -62,6 +62,7 @@ public class CorpBasicSyncData implements SyncData {
                 corpBasic.unlock();
             }
         }
+        logger.info("企业基本信息同步完成");
         returnMessage.modifyMsg(ErrorCodeEnum.NORMAL);
         return returnMessage;
     }

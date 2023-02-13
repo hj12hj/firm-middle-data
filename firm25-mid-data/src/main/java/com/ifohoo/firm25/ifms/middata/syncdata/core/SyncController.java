@@ -3,13 +3,11 @@ package com.ifohoo.firm25.ifms.middata.syncdata.core;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.dynamic.datasource.ds.ItemDataSource;
-import com.baomidou.dynamic.datasource.provider.YmlDynamicDataSourceProvider;
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.ifohoo.common.ifms.common.base.ReturnMessage;
 import com.ifohoo.common.ifms.common.enums.ErrorCodeEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,9 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -85,6 +81,9 @@ public class SyncController {
         return returnMessage;
     }
 
+    /**
+     * 数据源信息
+     */
     static class DataSourceInfo {
         public String getUrl() {
             return url;

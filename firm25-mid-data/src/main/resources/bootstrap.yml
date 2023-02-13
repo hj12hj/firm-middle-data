@@ -31,9 +31,27 @@ mybatis-plus:
 
 
 
-#logging:
-#  file:
-#    name: /usr/local/firm-base/log/auth.log
-#server:
-#  port: 8020
+#spring:
+#  datasource:
+#    dynamic:
+#      primary: db1
+#      #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+#      strict: true
+#      datasource:
+#        db1:
+#          url: jdbc:oracle:thin:@10.55.254.134:1521:ORCL
+#          jdbc-url: ${spring.datasource.url}
+#          username: ${oracle.user:firm25}
+#          password: ${oracle.pass:888888}
+#          driver-class-name: oracle.jdbc.OracleDriver
+#          type: com.alibaba.druid.pool.DruidDataSource
 #
+#        db2:
+#          url: jdbc:oracle:thin:@106.15.194.243:1521:helowin
+#          jdbc-url: ${spring.datasource.url}
+#          username: ${oracle.user:hj}
+#          password: ${oracle.pass:123456}
+#          driver-class-name: oracle.jdbc.OracleDriver
+#          type: com.alibaba.druid.pool.DruidDataSource
+
+

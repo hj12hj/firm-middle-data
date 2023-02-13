@@ -8,6 +8,7 @@ import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.dynamic.datasource.provider.YmlDynamicDataSourceProvider;
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ifohoo.firm25.ifms.middata.corp.domain.CorpBasic;
 import com.ifohoo.firm25.ifms.middata.corp.esmapper.EsCorpBasicMapper;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Map;
 
 
@@ -68,11 +70,9 @@ class EsTest {
     @Test
     void syncData() {
 
-        dynamicRoutingDataSource.getDataSources().forEach((k, v) -> {
-
-            DruidDataSource druidDtaSource = (DruidDataSource) v;
-            System.out.println(k + " " + druidDtaSource.getUrl());
-        });
+        IPage<CorpBasic> allPage = corpBasicMapper.findAllPage(new Page<>(1, 10));
+        List<CorpBasic> records = allPage.getRecords();
+        System.out.println(records);
 
     }
 }

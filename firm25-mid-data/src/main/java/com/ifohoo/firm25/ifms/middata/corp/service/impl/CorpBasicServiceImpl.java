@@ -32,6 +32,14 @@ public class CorpBasicServiceImpl extends ServiceImpl<CorpBasicMapper, CorpBasic
     @Autowired
     CorpBasicMapper corpBasicMapper;
 
+    /**
+     * 数据库查询
+     *
+     * @param page
+     * @param pagesize
+     * @param corpBasic
+     * @return
+     */
     @Override
     public ReturnMessage findCorpBasicMap(int page, int pagesize, CorpBasic corpBasic) {
         ReturnMessage returnMessage = new ReturnMessage();
@@ -49,6 +57,14 @@ public class CorpBasicServiceImpl extends ServiceImpl<CorpBasicMapper, CorpBasic
     @Autowired
     EsCorpBasicMapper esCorpBasicMapper;
 
+    /**
+     * es查询
+     *
+     * @param page
+     * @param pagesize
+     * @param corpBasic
+     * @return
+     */
     @Override
     public ReturnMessage findCorpBasicEsMap(int page, int pagesize, CorpBasic corpBasic) {
         ReturnMessage returnMessage = new ReturnMessage();
