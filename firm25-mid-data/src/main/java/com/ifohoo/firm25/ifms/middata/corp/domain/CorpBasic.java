@@ -1,32 +1,43 @@
 package com.ifohoo.firm25.ifms.middata.corp.domain;
 
+import cn.easyes.annotation.IndexField;
+import cn.easyes.annotation.IndexId;
+import cn.easyes.annotation.IndexName;
+import cn.easyes.common.constants.Analyzer;
+import cn.easyes.common.enums.FieldType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * 企业基本信息表
+ *
  * @TableName CORP_BASIC
  */
-@TableName(value ="CORP_BASIC")
+@TableName(value = "CORP_BASIC")
+@IndexName(value = "corp_basic")
 public class CorpBasic implements Serializable {
     /**
      * 企业代码
      */
     @TableId
+    @IndexId
     private String corpCode;
 
     /**
      * 企业简称
      */
+    @IndexField(fieldType = FieldType.TEXT, analyzer = Analyzer.IK_SMART, searchAnalyzer = Analyzer.IK_MAX_WORD)
     private String corpName;
 
     /**
      * 企业全称
      */
+    @IndexField(fieldType = FieldType.TEXT, analyzer = Analyzer.IK_SMART, searchAnalyzer = Analyzer.IK_MAX_WORD)
     private String corpFullname;
 
     /**
@@ -187,15 +198,16 @@ public class CorpBasic implements Serializable {
     /**
      * 最后操作日期\时间
      */
+    @IndexField(fieldType = FieldType.DATE, dateFormat = "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis")
     private Date lastOperateDatetime;
 
     /**
-     * 
+     *
      */
     private String oldCorpCode;
 
     /**
-     * 
+     *
      */
     private Long oldCorpNo;
 
@@ -693,28 +705,28 @@ public class CorpBasic implements Serializable {
     }
 
     /**
-     * 
+     *
      */
     public String getOldCorpCode() {
         return oldCorpCode;
     }
 
     /**
-     * 
+     *
      */
     public void setOldCorpCode(String oldCorpCode) {
         this.oldCorpCode = oldCorpCode;
     }
 
     /**
-     * 
+     *
      */
     public Long getOldCorpNo() {
         return oldCorpNo;
     }
 
     /**
-     * 
+     *
      */
     public void setOldCorpNo(Long oldCorpNo) {
         this.oldCorpNo = oldCorpNo;
@@ -733,42 +745,42 @@ public class CorpBasic implements Serializable {
         }
         CorpBasic other = (CorpBasic) that;
         return (this.getCorpCode() == null ? other.getCorpCode() == null : this.getCorpCode().equals(other.getCorpCode()))
-            && (this.getCorpName() == null ? other.getCorpName() == null : this.getCorpName().equals(other.getCorpName()))
-            && (this.getCorpFullname() == null ? other.getCorpFullname() == null : this.getCorpFullname().equals(other.getCorpFullname()))
-            && (this.getCorpForeignName() == null ? other.getCorpForeignName() == null : this.getCorpForeignName().equals(other.getCorpForeignName()))
-            && (this.getCorpForeignFullname() == null ? other.getCorpForeignFullname() == null : this.getCorpForeignFullname().equals(other.getCorpForeignFullname()))
-            && (this.getTelephoneText() == null ? other.getTelephoneText() == null : this.getTelephoneText().equals(other.getTelephoneText()))
-            && (this.getFaxText() == null ? other.getFaxText() == null : this.getFaxText().equals(other.getFaxText()))
-            && (this.getEmailText() == null ? other.getEmailText() == null : this.getEmailText().equals(other.getEmailText()))
-            && (this.getWebsiteText() == null ? other.getWebsiteText() == null : this.getWebsiteText().equals(other.getWebsiteText()))
-            && (this.getPostCode() == null ? other.getPostCode() == null : this.getPostCode().equals(other.getPostCode()))
-            && (this.getCreditCode() == null ? other.getCreditCode() == null : this.getCreditCode().equals(other.getCreditCode()))
-            && (this.getRegisterCode() == null ? other.getRegisterCode() == null : this.getRegisterCode().equals(other.getRegisterCode()))
-            && (this.getOrganizationCode() == null ? other.getOrganizationCode() == null : this.getOrganizationCode().equals(other.getOrganizationCode()))
-            && (this.getCorpOperatingStatusCode() == null ? other.getCorpOperatingStatusCode() == null : this.getCorpOperatingStatusCode().equals(other.getCorpOperatingStatusCode()))
-            && (this.getEstablishedDate() == null ? other.getEstablishedDate() == null : this.getEstablishedDate().equals(other.getEstablishedDate()))
-            && (this.getLegalRepresentativeName() == null ? other.getLegalRepresentativeName() == null : this.getLegalRepresentativeName().equals(other.getLegalRepresentativeName()))
-            && (this.getBoardSecretaryName() == null ? other.getBoardSecretaryName() == null : this.getBoardSecretaryName().equals(other.getBoardSecretaryName()))
-            && (this.getRegisterCapitalAmt() == null ? other.getRegisterCapitalAmt() == null : this.getRegisterCapitalAmt().equals(other.getRegisterCapitalAmt()))
-            && (this.getPaidCapitalAmt() == null ? other.getPaidCapitalAmt() == null : this.getPaidCapitalAmt().equals(other.getPaidCapitalAmt()))
-            && (this.getOperatingDurText() == null ? other.getOperatingDurText() == null : this.getOperatingDurText().equals(other.getOperatingDurText()))
-            && (this.getRecordAuthorityName() == null ? other.getRecordAuthorityName() == null : this.getRecordAuthorityName().equals(other.getRecordAuthorityName()))
-            && (this.getIssueDate() == null ? other.getIssueDate() == null : this.getIssueDate().equals(other.getIssueDate()))
-            && (this.getRegisterAddressText() == null ? other.getRegisterAddressText() == null : this.getRegisterAddressText().equals(other.getRegisterAddressText()))
-            && (this.getOfficeAddressText() == null ? other.getOfficeAddressText() == null : this.getOfficeAddressText().equals(other.getOfficeAddressText()))
-            && (this.getOperatingScopeText() == null ? other.getOperatingScopeText() == null : this.getOperatingScopeText().equals(other.getOperatingScopeText()))
-            && (this.getAreaCode() == null ? other.getAreaCode() == null : this.getAreaCode().equals(other.getAreaCode()))
-            && (this.getCorpTypeCode() == null ? other.getCorpTypeCode() == null : this.getCorpTypeCode().equals(other.getCorpTypeCode()))
-            && (this.getCorpScaleFlagCode() == null ? other.getCorpScaleFlagCode() == null : this.getCorpScaleFlagCode().equals(other.getCorpScaleFlagCode()))
-            && (this.getCorpLocalFlagCode() == null ? other.getCorpLocalFlagCode() == null : this.getCorpLocalFlagCode().equals(other.getCorpLocalFlagCode()))
-            && (this.getCorpCityFlagCode() == null ? other.getCorpCityFlagCode() == null : this.getCorpCityFlagCode().equals(other.getCorpCityFlagCode()))
-            && (this.getLeiCode() == null ? other.getLeiCode() == null : this.getLeiCode().equals(other.getLeiCode()))
-            && (this.getThirdCorpCode() == null ? other.getThirdCorpCode() == null : this.getThirdCorpCode().equals(other.getThirdCorpCode()))
-            && (this.getRowVersionNo() == null ? other.getRowVersionNo() == null : this.getRowVersionNo().equals(other.getRowVersionNo()))
-            && (this.getLastOperateStaffCode() == null ? other.getLastOperateStaffCode() == null : this.getLastOperateStaffCode().equals(other.getLastOperateStaffCode()))
-            && (this.getLastOperateDatetime() == null ? other.getLastOperateDatetime() == null : this.getLastOperateDatetime().equals(other.getLastOperateDatetime()))
-            && (this.getOldCorpCode() == null ? other.getOldCorpCode() == null : this.getOldCorpCode().equals(other.getOldCorpCode()))
-            && (this.getOldCorpNo() == null ? other.getOldCorpNo() == null : this.getOldCorpNo().equals(other.getOldCorpNo()));
+                && (this.getCorpName() == null ? other.getCorpName() == null : this.getCorpName().equals(other.getCorpName()))
+                && (this.getCorpFullname() == null ? other.getCorpFullname() == null : this.getCorpFullname().equals(other.getCorpFullname()))
+                && (this.getCorpForeignName() == null ? other.getCorpForeignName() == null : this.getCorpForeignName().equals(other.getCorpForeignName()))
+                && (this.getCorpForeignFullname() == null ? other.getCorpForeignFullname() == null : this.getCorpForeignFullname().equals(other.getCorpForeignFullname()))
+                && (this.getTelephoneText() == null ? other.getTelephoneText() == null : this.getTelephoneText().equals(other.getTelephoneText()))
+                && (this.getFaxText() == null ? other.getFaxText() == null : this.getFaxText().equals(other.getFaxText()))
+                && (this.getEmailText() == null ? other.getEmailText() == null : this.getEmailText().equals(other.getEmailText()))
+                && (this.getWebsiteText() == null ? other.getWebsiteText() == null : this.getWebsiteText().equals(other.getWebsiteText()))
+                && (this.getPostCode() == null ? other.getPostCode() == null : this.getPostCode().equals(other.getPostCode()))
+                && (this.getCreditCode() == null ? other.getCreditCode() == null : this.getCreditCode().equals(other.getCreditCode()))
+                && (this.getRegisterCode() == null ? other.getRegisterCode() == null : this.getRegisterCode().equals(other.getRegisterCode()))
+                && (this.getOrganizationCode() == null ? other.getOrganizationCode() == null : this.getOrganizationCode().equals(other.getOrganizationCode()))
+                && (this.getCorpOperatingStatusCode() == null ? other.getCorpOperatingStatusCode() == null : this.getCorpOperatingStatusCode().equals(other.getCorpOperatingStatusCode()))
+                && (this.getEstablishedDate() == null ? other.getEstablishedDate() == null : this.getEstablishedDate().equals(other.getEstablishedDate()))
+                && (this.getLegalRepresentativeName() == null ? other.getLegalRepresentativeName() == null : this.getLegalRepresentativeName().equals(other.getLegalRepresentativeName()))
+                && (this.getBoardSecretaryName() == null ? other.getBoardSecretaryName() == null : this.getBoardSecretaryName().equals(other.getBoardSecretaryName()))
+                && (this.getRegisterCapitalAmt() == null ? other.getRegisterCapitalAmt() == null : this.getRegisterCapitalAmt().equals(other.getRegisterCapitalAmt()))
+                && (this.getPaidCapitalAmt() == null ? other.getPaidCapitalAmt() == null : this.getPaidCapitalAmt().equals(other.getPaidCapitalAmt()))
+                && (this.getOperatingDurText() == null ? other.getOperatingDurText() == null : this.getOperatingDurText().equals(other.getOperatingDurText()))
+                && (this.getRecordAuthorityName() == null ? other.getRecordAuthorityName() == null : this.getRecordAuthorityName().equals(other.getRecordAuthorityName()))
+                && (this.getIssueDate() == null ? other.getIssueDate() == null : this.getIssueDate().equals(other.getIssueDate()))
+                && (this.getRegisterAddressText() == null ? other.getRegisterAddressText() == null : this.getRegisterAddressText().equals(other.getRegisterAddressText()))
+                && (this.getOfficeAddressText() == null ? other.getOfficeAddressText() == null : this.getOfficeAddressText().equals(other.getOfficeAddressText()))
+                && (this.getOperatingScopeText() == null ? other.getOperatingScopeText() == null : this.getOperatingScopeText().equals(other.getOperatingScopeText()))
+                && (this.getAreaCode() == null ? other.getAreaCode() == null : this.getAreaCode().equals(other.getAreaCode()))
+                && (this.getCorpTypeCode() == null ? other.getCorpTypeCode() == null : this.getCorpTypeCode().equals(other.getCorpTypeCode()))
+                && (this.getCorpScaleFlagCode() == null ? other.getCorpScaleFlagCode() == null : this.getCorpScaleFlagCode().equals(other.getCorpScaleFlagCode()))
+                && (this.getCorpLocalFlagCode() == null ? other.getCorpLocalFlagCode() == null : this.getCorpLocalFlagCode().equals(other.getCorpLocalFlagCode()))
+                && (this.getCorpCityFlagCode() == null ? other.getCorpCityFlagCode() == null : this.getCorpCityFlagCode().equals(other.getCorpCityFlagCode()))
+                && (this.getLeiCode() == null ? other.getLeiCode() == null : this.getLeiCode().equals(other.getLeiCode()))
+                && (this.getThirdCorpCode() == null ? other.getThirdCorpCode() == null : this.getThirdCorpCode().equals(other.getThirdCorpCode()))
+                && (this.getRowVersionNo() == null ? other.getRowVersionNo() == null : this.getRowVersionNo().equals(other.getRowVersionNo()))
+                && (this.getLastOperateStaffCode() == null ? other.getLastOperateStaffCode() == null : this.getLastOperateStaffCode().equals(other.getLastOperateStaffCode()))
+                && (this.getLastOperateDatetime() == null ? other.getLastOperateDatetime() == null : this.getLastOperateDatetime().equals(other.getLastOperateDatetime()))
+                && (this.getOldCorpCode() == null ? other.getOldCorpCode() == null : this.getOldCorpCode().equals(other.getOldCorpCode()))
+                && (this.getOldCorpNo() == null ? other.getOldCorpNo() == null : this.getOldCorpNo().equals(other.getOldCorpNo()));
     }
 
     @Override

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: es
+    name: mid-data
   cloud:
     nacos:
       discovery:
@@ -9,14 +9,9 @@ spring:
         server-addr: 10.55.255.183:28100
         file-extension: yml
         shared-configs[0]:
-          data-id: dao1.yml
-
-
-
-  redis:
-    host: 10.55.254.135
-    password: 123456
-    database: 0
+          data-id: dao.yml
+        shared-configs[1]:
+          data-id: redis.yml
 
 
 easy-es:
@@ -24,9 +19,15 @@ easy-es:
   username: elastic #es用户名,若无则删去此行配置
   password: 123456 #es密码,若无则删去此行配置
   banner: false
+  enable: true
+  global-config:
+    process-index-mode: manual
 
 
-
+#导入全局配置文件
+mybatis-plus:
+  #批量注册指定包下的类
+  type-aliases-package: com.ifohoo.firm25.ifms.middata.*.domain
 
 
 

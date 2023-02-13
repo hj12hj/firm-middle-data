@@ -1,10 +1,7 @@
-package com.ifohoo.firm25.ifms.middata.corp.sqlmapper;
+package com.ifohoo.firm25.ifms.middata.corp.esmapper;
 
+import cn.easyes.core.conditions.interfaces.BaseEsMapper;
 import com.ifohoo.firm25.ifms.middata.corp.domain.CorpBasic;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-
-import java.util.List;
-import java.util.Map;
 
 /**
 * @author hejie
@@ -12,7 +9,7 @@ import java.util.Map;
 * @createDate 2023-02-10 23:21:53
 * @Entity corp.domain.CorpBasic
 */
-public interface CorpBasicMapper extends BaseMapper<CorpBasic> {
+public interface EsCorpBasicMapper extends BaseEsMapper<CorpBasic> {
 
 }
 

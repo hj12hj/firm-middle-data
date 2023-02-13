@@ -1,5 +1,6 @@
 package com.ifohoo.firm25.ifms.middata.config;
 
+import cn.easyes.starter.register.EsMapperScan;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -14,7 +15,8 @@ import org.springframework.context.annotation.Configuration;
  * @time: 12:21 PM
  */
 @Configuration
-@MapperScan("com.ifohoo.firm25.ifms.info.**.sqlmapper")
+@MapperScan("com.ifohoo.firm25.ifms.middata.**.sqlmapper")
+@EsMapperScan("com.ifohoo.firm25.ifms.middata.**.esmapper")
 public class MybatisPlusConfig {
 
     /**

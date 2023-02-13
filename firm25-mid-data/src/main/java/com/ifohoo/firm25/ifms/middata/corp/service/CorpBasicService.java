@@ -1,7 +1,10 @@
 package com.ifohoo.firm25.ifms.middata.corp.service;
 
+import com.ifohoo.common.ifms.common.base.ReturnMessage;
 import com.ifohoo.firm25.ifms.middata.corp.domain.CorpBasic;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.Map;
 
 /**
 * @author hejie
@@ -9,5 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-02-10 23:21:53
 */
 public interface CorpBasicService extends IService<CorpBasic> {
+    ReturnMessage findCorpBasicMap(int page, int pagesize,CorpBasic corpBasic);
 
+    ReturnMessage findCorpBasicEsMap(int page, int pagesize,CorpBasic corpBasic);
 }

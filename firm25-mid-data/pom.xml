@@ -27,6 +27,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.19.1</version>
+        </dependency>
+
         <!--        dao-->
         <dependency>
             <groupId>com.ifohoo.common</groupId>
