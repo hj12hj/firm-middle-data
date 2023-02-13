@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuRightsMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuRights">
+            <id property="rightsNo" column="RIGHTS_NO" jdbcType="DECIMAL"/>
+            <result property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="declarationDate" column="DECLARATION_DATE" jdbcType="VARCHAR"/>
+            <result property="registerDate" column="REGISTER_DATE" jdbcType="VARCHAR"/>
+            <result property="exDate" column="EX_DATE" jdbcType="VARCHAR"/>
+            <result property="launchDate" column="LAUNCH_DATE" jdbcType="VARCHAR"/>
+            <result property="qtyRightsUnitQty" column="QTY_RIGHTS_UNIT_QTY" jdbcType="DECIMAL"/>
+            <result property="qtyRightsRatio" column="QTY_RIGHTS_RATIO" jdbcType="DECIMAL"/>
+            <result property="amtRightsUnitQty" column="AMT_RIGHTS_UNIT_QTY" jdbcType="DECIMAL"/>
+            <result property="amtRightsRatio" column="AMT_RIGHTS_RATIO" jdbcType="DECIMAL"/>
+            <result property="amtRightsTaxRatio" column="AMT_RIGHTS_TAX_RATIO" jdbcType="DECIMAL"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        RIGHTS_NO,SECU_GLOBAL_CODE,DECLARATION_DATE,
+        REGISTER_DATE,EX_DATE,LAUNCH_DATE,
+        QTY_RIGHTS_UNIT_QTY,QTY_RIGHTS_RATIO,AMT_RIGHTS_UNIT_QTY,
+        AMT_RIGHTS_RATIO,AMT_RIGHTS_TAX_RATIO,ROW_VERSION_NO,
+        LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

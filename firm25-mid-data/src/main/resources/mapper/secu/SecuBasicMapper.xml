@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuBasicMapper">
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuBasic">
+        <id property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+        <result property="exchangeCode" column="EXCHANGE_CODE" jdbcType="VARCHAR"/>
+        <result property="marketCode" column="MARKET_CODE" jdbcType="VARCHAR"/>
+        <result property="secuCode" column="SECU_CODE" jdbcType="VARCHAR"/>
+        <result property="secuName" column="SECU_NAME" jdbcType="VARCHAR"/>
+        <result property="secuFullname" column="SECU_FULLNAME" jdbcType="VARCHAR"/>
+        <result property="pinyinText" column="PINYIN_TEXT" jdbcType="VARCHAR"/>
+        <result property="secuForeignName" column="SECU_FOREIGN_NAME" jdbcType="VARCHAR"/>
+        <result property="secuForeignFullname" column="SECU_FOREIGN_FULLNAME" jdbcType="VARCHAR"/>
+        <result property="secuCategoryCode" column="SECU_CATEGORY_CODE" jdbcType="VARCHAR"/>
+        <result property="isinCode" column="ISIN_CODE" jdbcType="VARCHAR"/>
+        <result property="tradeCurrencyCode" column="TRADE_CURRENCY_CODE" jdbcType="VARCHAR"/>
+        <result property="settleCurrencyCode" column="SETTLE_CURRENCY_CODE" jdbcType="VARCHAR"/>
+        <result property="issueDate" column="ISSUE_DATE" jdbcType="VARCHAR"/>
+        <result property="listingDate" column="LISTING_DATE" jdbcType="VARCHAR"/>
+        <result property="delistingDate" column="DELISTING_DATE" jdbcType="VARCHAR"/>
+        <result property="dueDate" column="DUE_DATE" jdbcType="VARCHAR"/>
+        <result property="issueQty" column="ISSUE_QTY" jdbcType="DECIMAL"/>
+        <result property="circulateQty" column="CIRCULATE_QTY" jdbcType="DECIMAL"/>
+        <result property="issuePrice" column="ISSUE_PRICE" jdbcType="DECIMAL"/>
+        <result property="facevaluePrice" column="FACEVALUE_PRICE" jdbcType="DECIMAL"/>
+        <result property="issuerCorpCode" column="ISSUER_CORP_CODE" jdbcType="VARCHAR"/>
+        <result property="managerCorpCode" column="MANAGER_CORP_CODE" jdbcType="VARCHAR"/>
+        <result property="trusteeCorpCode" column="TRUSTEE_CORP_CODE" jdbcType="VARCHAR"/>
+        <result property="brokerCorpCode" column="BROKER_CORP_CODE" jdbcType="VARCHAR"/>
+        <result property="extra1Code" column="EXTRA1_CODE" jdbcType="VARCHAR"/>
+        <result property="extra2Code" column="EXTRA2_CODE" jdbcType="VARCHAR"/>
+        <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+        <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+        <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+        <result property="totalShareQty" column="TOTAL_SHARE_QTY" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        SECU_GLOBAL_CODE
+        ,EXCHANGE_CODE,MARKET_CODE,
+        SECU_CODE,SECU_NAME,SECU_FULLNAME,
+        PINYIN_TEXT,SECU_FOREIGN_NAME,SECU_FOREIGN_FULLNAME,
+        SECU_CATEGORY_CODE,ISIN_CODE,TRADE_CURRENCY_CODE,
+        SETTLE_CURRENCY_CODE,ISSUE_DATE,LISTING_DATE,
+        DELISTING_DATE,DUE_DATE,ISSUE_QTY,
+        CIRCULATE_QTY,ISSUE_PRICE,FACEVALUE_PRICE,
+        ISSUER_CORP_CODE,MANAGER_CORP_CODE,TRUSTEE_CORP_CODE,
+        BROKER_CORP_CODE,EXTRA1_CODE,EXTRA2_CODE,
+        ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME,
+        TOTAL_SHARE_QTY
+    </sql>
+</mapper>

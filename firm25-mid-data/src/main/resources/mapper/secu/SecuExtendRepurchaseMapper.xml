@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuExtendRepurchaseMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuExtendRepurchase">
+            <id property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="stdDaysCount" column="STD_DAYS_COUNT" jdbcType="DECIMAL"/>
+            <result property="yearDaysCount" column="YEAR_DAYS_COUNT" jdbcType="DECIMAL"/>
+            <result property="collateralDealTypeCode" column="COLLATERAL_DEAL_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        SECU_GLOBAL_CODE,STD_DAYS_COUNT,YEAR_DAYS_COUNT,
+        COLLATERAL_DEAL_TYPE_CODE,ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,
+        LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

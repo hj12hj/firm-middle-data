@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuValuationMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuValuation">
+            <id property="valuationNo" column="VALUATION_NO" jdbcType="DECIMAL"/>
+            <result property="evDate" column="EV_DATE" jdbcType="VARCHAR"/>
+            <result property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="evNetPrice" column="EV_NET_PRICE" jdbcType="DECIMAL"/>
+            <result property="evDaytimeInterestPrice" column="EV_DAYTIME_INTEREST_PRICE" jdbcType="DECIMAL"/>
+            <result property="evDaytimeFullPrice" column="EV_DAYTIME_FULL_PRICE" jdbcType="DECIMAL"/>
+            <result property="evYield" column="EV_YIELD" jdbcType="DECIMAL"/>
+            <result property="evDurValue" column="EV_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="evCvxValue" column="EV_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="evBasepointValue" column="EV_BASEPOINT_VALUE" jdbcType="DECIMAL"/>
+            <result property="evSpreadDurValue" column="EV_SPREAD_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="evSpreadCvxValue" column="EV_SPREAD_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="evInterestDurValue" column="EV_INTEREST_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="evInterestCvxValue" column="EV_INTEREST_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="evDayendInterestPrice" column="EV_DAYEND_INTEREST_PRICE" jdbcType="DECIMAL"/>
+            <result property="evDayendFullPrice" column="EV_DAYEND_FULL_PRICE" jdbcType="DECIMAL"/>
+            <result property="avgNetPrice" column="AVG_NET_PRICE" jdbcType="DECIMAL"/>
+            <result property="avgFullPrice" column="AVG_FULL_PRICE" jdbcType="DECIMAL"/>
+            <result property="avgYield" column="AVG_YIELD" jdbcType="DECIMAL"/>
+            <result property="avgDurValue" column="AVG_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgCvxValue" column="AVG_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgBasepointValue" column="AVG_BASEPOINT_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgSpreadDurValue" column="AVG_SPREAD_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgSpreadCvxValue" column="AVG_SPREAD_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgInterestDurValue" column="AVG_INTEREST_DUR_VALUE" jdbcType="DECIMAL"/>
+            <result property="avgInterestCvxValue" column="AVG_INTEREST_CVX_VALUE" jdbcType="DECIMAL"/>
+            <result property="residualPeriodValue" column="RESIDUAL_PERIOD_VALUE" jdbcType="DECIMAL"/>
+            <result property="residualPrincipalValue" column="RESIDUAL_PRINCIPAL_VALUE" jdbcType="DECIMAL"/>
+            <result property="pointDiffYield" column="POINT_DIFF_YIELD" jdbcType="DECIMAL"/>
+            <result property="reliabilityText" column="RELIABILITY_TEXT" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        VALUATION_NO,EV_DATE,SECU_GLOBAL_CODE,
+        EV_NET_PRICE,EV_DAYTIME_INTEREST_PRICE,EV_DAYTIME_FULL_PRICE,
+        EV_YIELD,EV_DUR_VALUE,EV_CVX_VALUE,
+        EV_BASEPOINT_VALUE,EV_SPREAD_DUR_VALUE,EV_SPREAD_CVX_VALUE,
+        EV_INTEREST_DUR_VALUE,EV_INTEREST_CVX_VALUE,EV_DAYEND_INTEREST_PRICE,
+        EV_DAYEND_FULL_PRICE,AVG_NET_PRICE,AVG_FULL_PRICE,
+        AVG_YIELD,AVG_DUR_VALUE,AVG_CVX_VALUE,
+        AVG_BASEPOINT_VALUE,AVG_SPREAD_DUR_VALUE,AVG_SPREAD_CVX_VALUE,
+        AVG_INTEREST_DUR_VALUE,AVG_INTEREST_CVX_VALUE,RESIDUAL_PERIOD_VALUE,
+        RESIDUAL_PRINCIPAL_VALUE,POINT_DIFF_YIELD,RELIABILITY_TEXT,
+        ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

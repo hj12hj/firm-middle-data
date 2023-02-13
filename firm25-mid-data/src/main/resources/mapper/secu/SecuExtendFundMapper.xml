@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuExtendFundMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuExtendFund">
+            <id property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="operateTypeCode" column="OPERATE_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="investObjectTypeCode" column="INVEST_OBJECT_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="investStrategyTypeCode" column="INVEST_STRATEGY_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="investAreaTypeCode" column="INVEST_AREA_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="tradeLocationTypeCode" column="TRADE_LOCATION_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="raiseTypeCode" column="RAISE_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="privateTypeCode" column="PRIVATE_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="investScopeText" column="INVEST_SCOPE_TEXT" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        SECU_GLOBAL_CODE,OPERATE_TYPE_CODE,INVEST_OBJECT_TYPE_CODE,
+        INVEST_STRATEGY_TYPE_CODE,INVEST_AREA_TYPE_CODE,TRADE_LOCATION_TYPE_CODE,
+        RAISE_TYPE_CODE,PRIVATE_TYPE_CODE,INVEST_SCOPE_TEXT,
+        ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

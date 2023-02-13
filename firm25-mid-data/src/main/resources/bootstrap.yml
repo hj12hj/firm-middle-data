@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: es
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.55.255.183:28100
+      config:
+        server-addr: 10.55.255.183:28100
+        file-extension: yml
+        shared-configs[0]:
+          data-id: dao1.yml
+
+
+
+  redis:
+    host: 10.55.254.135
+    password: 123456
+    database: 0
+
+
+easy-es:
+  address: 10.55.255.129:9200
+  username: elastic #es用户名,若无则删去此行配置
+  password: 123456 #es密码,若无则删去此行配置
+  banner: false
+
+
+
+
+
+
+#logging:
+#  file:
+#    name: /usr/local/firm-base/log/auth.log
+#server:
+#  port: 8020
+#

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.secu.sqlmapper.SecuInterestPriceMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.secu.domain.SecuInterestPrice">
+            <id property="interestPriceNo" column="INTEREST_PRICE_NO" jdbcType="DECIMAL"/>
+            <result property="occurDate" column="OCCUR_DATE" jdbcType="VARCHAR"/>
+            <result property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="interestPrice" column="INTEREST_PRICE" jdbcType="DECIMAL"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        INTEREST_PRICE_NO,OCCUR_DATE,SECU_GLOBAL_CODE,
+        INTEREST_PRICE,ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,
+        LAST_OPERATE_DATETIME
+    </sql>
+</mapper>
