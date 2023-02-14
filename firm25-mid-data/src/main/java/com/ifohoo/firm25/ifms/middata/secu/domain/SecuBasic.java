@@ -1,22 +1,31 @@
 package com.ifohoo.firm25.ifms.middata.secu.domain;
 
+import cn.easyes.annotation.IndexField;
+import cn.easyes.annotation.IndexId;
+import cn.easyes.annotation.IndexName;
+import cn.easyes.common.constants.Analyzer;
+import cn.easyes.common.enums.FieldType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * 证券基本信息表
+ *
  * @TableName SECU_BASIC
  */
-@TableName(value ="SECU_BASIC")
+@TableName(value = "SECU_BASIC")
+@IndexName("secu_basic")
 public class SecuBasic implements Serializable {
     /**
      * 系统的证券代码
      */
     @TableId
+    @IndexId
     private String secuGlobalCode;
 
     /**
@@ -37,11 +46,13 @@ public class SecuBasic implements Serializable {
     /**
      * 证券简称
      */
+    @IndexField(fieldType = FieldType.TEXT, analyzer = Analyzer.IK_SMART, searchAnalyzer = Analyzer.IK_MAX_WORD)
     private String secuName;
 
     /**
      * 证券全称
      */
+    @IndexField(fieldType = FieldType.TEXT, analyzer = Analyzer.IK_SMART, searchAnalyzer = Analyzer.IK_MAX_WORD)
     private String secuFullname;
 
     /**
@@ -165,7 +176,7 @@ public class SecuBasic implements Serializable {
     private Date lastOperateDatetime;
 
     /**
-     * 
+     *
      */
     private BigDecimal totalShareQty;
 
@@ -593,14 +604,14 @@ public class SecuBasic implements Serializable {
     }
 
     /**
-     * 
+     *
      */
     public BigDecimal getTotalShareQty() {
         return totalShareQty;
     }
 
     /**
-     * 
+     *
      */
     public void setTotalShareQty(BigDecimal totalShareQty) {
         this.totalShareQty = totalShareQty;
@@ -619,36 +630,36 @@ public class SecuBasic implements Serializable {
         }
         SecuBasic other = (SecuBasic) that;
         return (this.getSecuGlobalCode() == null ? other.getSecuGlobalCode() == null : this.getSecuGlobalCode().equals(other.getSecuGlobalCode()))
-            && (this.getExchangeCode() == null ? other.getExchangeCode() == null : this.getExchangeCode().equals(other.getExchangeCode()))
-            && (this.getMarketCode() == null ? other.getMarketCode() == null : this.getMarketCode().equals(other.getMarketCode()))
-            && (this.getSecuCode() == null ? other.getSecuCode() == null : this.getSecuCode().equals(other.getSecuCode()))
-            && (this.getSecuName() == null ? other.getSecuName() == null : this.getSecuName().equals(other.getSecuName()))
-            && (this.getSecuFullname() == null ? other.getSecuFullname() == null : this.getSecuFullname().equals(other.getSecuFullname()))
-            && (this.getPinyinText() == null ? other.getPinyinText() == null : this.getPinyinText().equals(other.getPinyinText()))
-            && (this.getSecuForeignName() == null ? other.getSecuForeignName() == null : this.getSecuForeignName().equals(other.getSecuForeignName()))
-            && (this.getSecuForeignFullname() == null ? other.getSecuForeignFullname() == null : this.getSecuForeignFullname().equals(other.getSecuForeignFullname()))
-            && (this.getSecuCategoryCode() == null ? other.getSecuCategoryCode() == null : this.getSecuCategoryCode().equals(other.getSecuCategoryCode()))
-            && (this.getIsinCode() == null ? other.getIsinCode() == null : this.getIsinCode().equals(other.getIsinCode()))
-            && (this.getTradeCurrencyCode() == null ? other.getTradeCurrencyCode() == null : this.getTradeCurrencyCode().equals(other.getTradeCurrencyCode()))
-            && (this.getSettleCurrencyCode() == null ? other.getSettleCurrencyCode() == null : this.getSettleCurrencyCode().equals(other.getSettleCurrencyCode()))
-            && (this.getIssueDate() == null ? other.getIssueDate() == null : this.getIssueDate().equals(other.getIssueDate()))
-            && (this.getListingDate() == null ? other.getListingDate() == null : this.getListingDate().equals(other.getListingDate()))
-            && (this.getDelistingDate() == null ? other.getDelistingDate() == null : this.getDelistingDate().equals(other.getDelistingDate()))
-            && (this.getDueDate() == null ? other.getDueDate() == null : this.getDueDate().equals(other.getDueDate()))
-            && (this.getIssueQty() == null ? other.getIssueQty() == null : this.getIssueQty().equals(other.getIssueQty()))
-            && (this.getCirculateQty() == null ? other.getCirculateQty() == null : this.getCirculateQty().equals(other.getCirculateQty()))
-            && (this.getIssuePrice() == null ? other.getIssuePrice() == null : this.getIssuePrice().equals(other.getIssuePrice()))
-            && (this.getFacevaluePrice() == null ? other.getFacevaluePrice() == null : this.getFacevaluePrice().equals(other.getFacevaluePrice()))
-            && (this.getIssuerCorpCode() == null ? other.getIssuerCorpCode() == null : this.getIssuerCorpCode().equals(other.getIssuerCorpCode()))
-            && (this.getManagerCorpCode() == null ? other.getManagerCorpCode() == null : this.getManagerCorpCode().equals(other.getManagerCorpCode()))
-            && (this.getTrusteeCorpCode() == null ? other.getTrusteeCorpCode() == null : this.getTrusteeCorpCode().equals(other.getTrusteeCorpCode()))
-            && (this.getBrokerCorpCode() == null ? other.getBrokerCorpCode() == null : this.getBrokerCorpCode().equals(other.getBrokerCorpCode()))
-            && (this.getExtra1Code() == null ? other.getExtra1Code() == null : this.getExtra1Code().equals(other.getExtra1Code()))
-            && (this.getExtra2Code() == null ? other.getExtra2Code() == null : this.getExtra2Code().equals(other.getExtra2Code()))
-            && (this.getRowVersionNo() == null ? other.getRowVersionNo() == null : this.getRowVersionNo().equals(other.getRowVersionNo()))
-            && (this.getLastOperateStaffCode() == null ? other.getLastOperateStaffCode() == null : this.getLastOperateStaffCode().equals(other.getLastOperateStaffCode()))
-            && (this.getLastOperateDatetime() == null ? other.getLastOperateDatetime() == null : this.getLastOperateDatetime().equals(other.getLastOperateDatetime()))
-            && (this.getTotalShareQty() == null ? other.getTotalShareQty() == null : this.getTotalShareQty().equals(other.getTotalShareQty()));
+                && (this.getExchangeCode() == null ? other.getExchangeCode() == null : this.getExchangeCode().equals(other.getExchangeCode()))
+                && (this.getMarketCode() == null ? other.getMarketCode() == null : this.getMarketCode().equals(other.getMarketCode()))
+                && (this.getSecuCode() == null ? other.getSecuCode() == null : this.getSecuCode().equals(other.getSecuCode()))
+                && (this.getSecuName() == null ? other.getSecuName() == null : this.getSecuName().equals(other.getSecuName()))
+                && (this.getSecuFullname() == null ? other.getSecuFullname() == null : this.getSecuFullname().equals(other.getSecuFullname()))
+                && (this.getPinyinText() == null ? other.getPinyinText() == null : this.getPinyinText().equals(other.getPinyinText()))
+                && (this.getSecuForeignName() == null ? other.getSecuForeignName() == null : this.getSecuForeignName().equals(other.getSecuForeignName()))
+                && (this.getSecuForeignFullname() == null ? other.getSecuForeignFullname() == null : this.getSecuForeignFullname().equals(other.getSecuForeignFullname()))
+                && (this.getSecuCategoryCode() == null ? other.getSecuCategoryCode() == null : this.getSecuCategoryCode().equals(other.getSecuCategoryCode()))
+                && (this.getIsinCode() == null ? other.getIsinCode() == null : this.getIsinCode().equals(other.getIsinCode()))
+                && (this.getTradeCurrencyCode() == null ? other.getTradeCurrencyCode() == null : this.getTradeCurrencyCode().equals(other.getTradeCurrencyCode()))
+                && (this.getSettleCurrencyCode() == null ? other.getSettleCurrencyCode() == null : this.getSettleCurrencyCode().equals(other.getSettleCurrencyCode()))
+                && (this.getIssueDate() == null ? other.getIssueDate() == null : this.getIssueDate().equals(other.getIssueDate()))
+                && (this.getListingDate() == null ? other.getListingDate() == null : this.getListingDate().equals(other.getListingDate()))
+                && (this.getDelistingDate() == null ? other.getDelistingDate() == null : this.getDelistingDate().equals(other.getDelistingDate()))
+                && (this.getDueDate() == null ? other.getDueDate() == null : this.getDueDate().equals(other.getDueDate()))
+                && (this.getIssueQty() == null ? other.getIssueQty() == null : this.getIssueQty().equals(other.getIssueQty()))
+                && (this.getCirculateQty() == null ? other.getCirculateQty() == null : this.getCirculateQty().equals(other.getCirculateQty()))
+                && (this.getIssuePrice() == null ? other.getIssuePrice() == null : this.getIssuePrice().equals(other.getIssuePrice()))
+                && (this.getFacevaluePrice() == null ? other.getFacevaluePrice() == null : this.getFacevaluePrice().equals(other.getFacevaluePrice()))
+                && (this.getIssuerCorpCode() == null ? other.getIssuerCorpCode() == null : this.getIssuerCorpCode().equals(other.getIssuerCorpCode()))
+                && (this.getManagerCorpCode() == null ? other.getManagerCorpCode() == null : this.getManagerCorpCode().equals(other.getManagerCorpCode()))
+                && (this.getTrusteeCorpCode() == null ? other.getTrusteeCorpCode() == null : this.getTrusteeCorpCode().equals(other.getTrusteeCorpCode()))
+                && (this.getBrokerCorpCode() == null ? other.getBrokerCorpCode() == null : this.getBrokerCorpCode().equals(other.getBrokerCorpCode()))
+                && (this.getExtra1Code() == null ? other.getExtra1Code() == null : this.getExtra1Code().equals(other.getExtra1Code()))
+                && (this.getExtra2Code() == null ? other.getExtra2Code() == null : this.getExtra2Code().equals(other.getExtra2Code()))
+                && (this.getRowVersionNo() == null ? other.getRowVersionNo() == null : this.getRowVersionNo().equals(other.getRowVersionNo()))
+                && (this.getLastOperateStaffCode() == null ? other.getLastOperateStaffCode() == null : this.getLastOperateStaffCode().equals(other.getLastOperateStaffCode()))
+                && (this.getLastOperateDatetime() == null ? other.getLastOperateDatetime() == null : this.getLastOperateDatetime().equals(other.getLastOperateDatetime()))
+                && (this.getTotalShareQty() == null ? other.getTotalShareQty() == null : this.getTotalShareQty().equals(other.getTotalShareQty()));
     }
 
     @Override

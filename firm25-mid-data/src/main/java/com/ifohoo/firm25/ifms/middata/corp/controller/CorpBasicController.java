@@ -43,7 +43,6 @@ public class CorpBasicController {
         //  动态切数据源
         if (StringUtils.isNotBlank(db)) {
             DynamicDataSourceContextHolder.push(db);
-
         }
         return corpBasicService.findCorpBasicMap(page, pagesize, corpBasic);
     }
