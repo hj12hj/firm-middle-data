@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * 分布式锁
+ *
  * @author: hj
  * @date: 2023/2/13
  * @time: 11:18 AM

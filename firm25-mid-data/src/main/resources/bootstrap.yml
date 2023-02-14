@@ -22,6 +22,8 @@ easy-es:
   enable: true
   global-config:
     process-index-mode: manual
+  socket-timeout: 60000
+  connection-request-timeout: 60000
 
 
 #导入全局配置文件

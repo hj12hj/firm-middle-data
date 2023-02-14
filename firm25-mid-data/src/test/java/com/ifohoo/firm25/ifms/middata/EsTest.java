@@ -2,10 +2,9 @@ package com.ifohoo.firm25.ifms.middata;
 
 
 import cn.easyes.core.biz.PageInfo;
+import cn.easyes.core.conditions.LambdaEsIndexWrapper;
 import cn.easyes.core.conditions.LambdaEsQueryWrapper;
-import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
-import com.baomidou.dynamic.datasource.provider.YmlDynamicDataSourceProvider;
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -16,13 +15,12 @@ import com.ifohoo.firm25.ifms.middata.corp.service.CorpBasicService;
 import com.ifohoo.firm25.ifms.middata.corp.sqlmapper.CorpBasicMapper;
 import com.ifohoo.firm25.ifms.middata.syncdata.core.SyncData;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.settings.Settings;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.sql.DataSource;
 import java.util.List;
-import java.util.Map;
 
 
 @SpringBootTest
@@ -74,5 +72,9 @@ class EsTest {
         List<CorpBasic> records = allPage.getRecords();
         System.out.println(records);
 
+        LambdaEsIndexWrapper<CorpBasic> indexWrapper = new LambdaEsIndexWrapper<>();
+        Settings settings = Settings.builder().put("index.max_result_window", 1000000).build();
+        indexWrapper.settings(settings);
+        esCorpBasicMapper.updateIndex(indexWrapper);
     }
 }

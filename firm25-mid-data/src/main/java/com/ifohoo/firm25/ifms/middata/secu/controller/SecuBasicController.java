@@ -37,7 +37,7 @@ public class SecuBasicController {
         return secuBasicService.findSecuBasicMap(page, pagesize, secuBasic);
     }
 
-    @GetMapping("/secuBasic/Esmap")
+    @GetMapping("/secuBasic/esMap")
     public ReturnMessage secuBasicEsMap(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                         @RequestParam(value = "pagesize", defaultValue = "10") Integer pagesize,
                                         SecuBasic secuBasic) {

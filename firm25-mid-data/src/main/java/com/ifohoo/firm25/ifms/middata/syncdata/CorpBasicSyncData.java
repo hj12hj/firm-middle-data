@@ -1,11 +1,13 @@
 package com.ifohoo.firm25.ifms.middata.syncdata;
 
+import cn.hutool.extra.spring.SpringUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ifohoo.common.ifms.common.base.ReturnMessage;
 import com.ifohoo.common.ifms.common.enums.ErrorCodeEnum;
 import com.ifohoo.firm25.ifms.middata.corp.domain.CorpBasic;
 import com.ifohoo.firm25.ifms.middata.corp.esmapper.EsCorpBasicMapper;
 import com.ifohoo.firm25.ifms.middata.corp.sqlmapper.CorpBasicMapper;
+import com.ifohoo.firm25.ifms.middata.opetation.EsTemplate;
 import com.ifohoo.firm25.ifms.middata.syncdata.core.SyncData;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -31,21 +33,29 @@ public class CorpBasicSyncData implements SyncData {
     private CorpBasicMapper corpBasicMapper;
 
     @Autowired
-    private EsCorpBasicMapper esCorpBasicMapper;
+    private RedissonClient redissonClient;
 
     @Autowired
-    private RedissonClient redissonClient;
+    private EsTemplate esTemplate;
 
     @Override
     public ReturnMessage doSyncData() {
         ReturnMessage returnMessage = new ReturnMessage();
         RLock corpBasic = redissonClient.getLock("corpBasic");
+
         try {
             boolean b = corpBasic.tryLock();
             if (!b) {
                 returnMessage.setMessage("企业基本信息同步正在进行中,请稍后再试");
                 return returnMessage;
             }
+            try {
+                SpringUtil.getBean(EsCorpBasicMapper.class).deleteIndex();
+                SpringUtil.getBean(EsCorpBasicMapper.class).createIndex();
+            } catch (Exception e) {
+                logger.error("删除索引失败", e);
+            }
+
             Long totalCount = corpBasicMapper.selectCount(null);
             int pageSize = 10000;
             int pageNum = (int) (totalCount / pageSize) + 1;
@@ -53,11 +63,13 @@ public class CorpBasicSyncData implements SyncData {
             for (int i = 1; i <= pageNum; i++) {
                 logger.info("企业基本信息同步当前页数:{}", i);
                 List<CorpBasic> corpBasicList = corpBasicMapper.selectPage(new Page<>(i, pageSize), null).getRecords();
-                esCorpBasicMapper.insertBatch(corpBasicList);
+                SpringUtil.getBean(EsCorpBasicMapper.class).insertBatch(corpBasicList);
             }
+            esTemplate.setMaxResultWindow("corp_basic", 6000000);
         } catch (Exception e) {
             throw new RuntimeException("企业基本信息同步异常", e);
         } finally {
+
             if (corpBasic.isLocked() && corpBasic.isHeldByCurrentThread()) {
                 corpBasic.unlock();
             }

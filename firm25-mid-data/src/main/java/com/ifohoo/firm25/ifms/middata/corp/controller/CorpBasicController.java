@@ -47,7 +47,7 @@ public class CorpBasicController {
         return corpBasicService.findCorpBasicMap(page, pagesize, corpBasic);
     }
 
-    @GetMapping("/corpBasic/Esmap")
+    @GetMapping("/corpBasic/esMap")
     public ReturnMessage listEs(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "pagesize", defaultValue = "10") Integer pagesize, CorpBasic corpBasic) {
 

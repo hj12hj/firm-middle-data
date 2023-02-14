@@ -2,6 +2,8 @@ package com.ifohoo.firm25.ifms.middata.secu.service.impl;
 
 import cn.easyes.core.biz.PageInfo;
 import cn.easyes.core.conditions.LambdaEsQueryWrapper;
+import cn.hutool.extra.spring.SpringUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ifohoo.common.ifms.common.base.ReturnMessage;
@@ -30,14 +32,14 @@ public class SecuBasicServiceImpl extends ServiceImpl<SecuBasicMapper, SecuBasic
         implements SecuBasicService {
 
 
-    @Autowired
-    private EsSecuBasicMapper esSecuBasicMapper;
-
-
     @Override
     public ReturnMessage findSecuBasicMap(int page, int pagesize, SecuBasic secuBasic) {
         ReturnMessage returnMessage = new ReturnMessage();
-        Page<SecuBasic> secuBasicPage = this.page(new Page<>(page, pagesize), null);
+        QueryWrapper<SecuBasic> queryWrapper = new QueryWrapper<>();
+        if (StringUtils.isNotBlank(secuBasic.getSecuName())) {
+            queryWrapper.like("secu_name", secuBasic.getSecuName());
+        }
+        Page<SecuBasic> secuBasicPage = this.page(new Page<>(page, pagesize), queryWrapper);
         Map<String, String> secuBasicMap = new HashMap<>();
         secuBasicPage.getRecords().forEach(item -> {
             secuBasicMap.put(item.getSecuCode(), item.getSecuName());
@@ -54,7 +56,7 @@ public class SecuBasicServiceImpl extends ServiceImpl<SecuBasicMapper, SecuBasic
         if (StringUtils.isNotBlank(secuBasic.getSecuName())) {
             queryWrapper.match(SecuBasic::getSecuName, secuBasic.getSecuName());
         }
-        PageInfo<SecuBasic> secuBasicPageInfo = esSecuBasicMapper.pageQuery(queryWrapper, page, pagesize);
+        PageInfo<SecuBasic> secuBasicPageInfo = SpringUtil.getBean(EsSecuBasicMapper.class).pageQuery(queryWrapper, page, pagesize);
         List<SecuBasic> records = secuBasicPageInfo.getList();
         returnMessage.setReturnData(records.stream().collect(Collectors.toMap(SecuBasic::getSecuCode, SecuBasic::getSecuName)));
         returnMessage.modifyMsg(ErrorCodeEnum.NORMAL);

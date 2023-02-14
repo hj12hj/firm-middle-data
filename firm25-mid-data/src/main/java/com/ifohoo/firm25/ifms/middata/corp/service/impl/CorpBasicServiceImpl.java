@@ -2,6 +2,7 @@ package com.ifohoo.firm25.ifms.middata.corp.service.impl;
 
 import cn.easyes.core.biz.PageInfo;
 import cn.easyes.core.conditions.LambdaEsQueryWrapper;
+import cn.hutool.extra.spring.SpringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
@@ -54,9 +55,6 @@ public class CorpBasicServiceImpl extends ServiceImpl<CorpBasicMapper, CorpBasic
     }
 
 
-    @Autowired
-    EsCorpBasicMapper esCorpBasicMapper;
-
     /**
      * es查询
      *
@@ -72,7 +70,7 @@ public class CorpBasicServiceImpl extends ServiceImpl<CorpBasicMapper, CorpBasic
         if (StringUtils.isNotBlank(corpBasic.getCorpName())) {
             queryWrapper.match(CorpBasic::getCorpName, corpBasic.getCorpName());
         }
-        PageInfo<CorpBasic> corpBasicPageInfo = esCorpBasicMapper.pageQuery(queryWrapper, page, pagesize);
+        PageInfo<CorpBasic> corpBasicPageInfo = SpringUtil.getBean(EsCorpBasicMapper.class).pageQuery(queryWrapper, page, pagesize);
         List<CorpBasic> records = corpBasicPageInfo.getList();
         returnMessage.setReturnData(records.stream().collect(Collectors.toMap(CorpBasic::getCorpCode, CorpBasic::getCorpName)));
         returnMessage.modifyMsg(ErrorCodeEnum.NORMAL);

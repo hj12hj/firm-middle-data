@@ -1,5 +1,6 @@
 package com.ifohoo.firm25.ifms.middata.secu.domain;
 
+import cn.easyes.annotation.HighLight;
 import cn.easyes.annotation.IndexField;
 import cn.easyes.annotation.IndexId;
 import cn.easyes.annotation.IndexName;
@@ -47,6 +48,7 @@ public class SecuBasic implements Serializable {
      * 证券简称
      */
     @IndexField(fieldType = FieldType.TEXT, analyzer = Analyzer.IK_SMART, searchAnalyzer = Analyzer.IK_MAX_WORD)
+    @HighLight(fragmentSize = 20000, preTag = "<span style='color:red'>", postTag = "</span>")
     private String secuName;
 
     /**
