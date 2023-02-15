@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: mid-data
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.7.5.4:28100
+      config:
+        server-addr: 10.7.5.4:28100
+        file-extension: yml
+        shared-configs[0]:
+          data-id: dao.yml
+        shared-configs[1]:
+          data-id: redis.yml
+
+
+easy-es:
+  address: 10.55.255.129:9200
+  username: elastic #es用户名,若无则删去此行配置
+  password: 123456 #es密码,若无则删去此行配置
+  banner: false
+  enable: true
+  global-config:
+    process-index-mode: manual
+  socket-timeout: 60000
+  connection-request-timeout: 60000
+
+
+#导入全局配置文件
+mybatis-plus:
+  #批量注册指定包下的类
+  type-aliases-package: com.ifohoo.firm25.ifms.middata..core.*.domain
+
+
+
+#spring:
+#  datasource:
+#    dynamic:
+#      primary: db1
+#      #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+#      strict: true
+#      datasource:
+#        db1:
+#          url: jdbc:oracle:thin:@10.55.254.134:1521:ORCL
+#          jdbc-url: ${spring.datasource.url}
+#          username: ${oracle.user:firm25}
+#          password: ${oracle.pass:888888}
+#          driver-class-name: oracle.jdbc.OracleDriver
+#          type: com.alibaba.druid.pool.DruidDataSource
+#
+#        db2:
+#          url: jdbc:oracle:thin:@106.15.194.243:1521:helowin
+#          jdbc-url: ${spring.datasource.url}
+#          username: ${oracle.user:hj}
+#          password: ${oracle.pass:123456}
+#          driver-class-name: oracle.jdbc.OracleDriver
+#          type: com.alibaba.druid.pool.DruidDataSource
+
+

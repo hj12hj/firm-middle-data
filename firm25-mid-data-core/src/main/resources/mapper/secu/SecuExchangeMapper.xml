@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.secu.mapper.SecuExchangeMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.secu.domain.SecuExchange">
+            <id property="exchangeCode" column="EXCHANGE_CODE" jdbcType="VARCHAR"/>
+            <result property="exchangeName" column="EXCHANGE_NAME" jdbcType="VARCHAR"/>
+            <result property="exchangeFullname" column="EXCHANGE_FULLNAME" jdbcType="VARCHAR"/>
+            <result property="exchangeForeignName" column="EXCHANGE_FOREIGN_NAME" jdbcType="VARCHAR"/>
+            <result property="exchangeForeignFullname" column="EXCHANGE_FOREIGN_FULLNAME" jdbcType="VARCHAR"/>
+            <result property="countryCode" column="COUNTRY_CODE" jdbcType="VARCHAR"/>
+            <result property="exchangeSuffixText" column="EXCHANGE_SUFFIX_TEXT" jdbcType="VARCHAR"/>
+            <result property="displayOrderNo" column="DISPLAY_ORDER_NO" jdbcType="DECIMAL"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        EXCHANGE_CODE,EXCHANGE_NAME,EXCHANGE_FULLNAME,
+        EXCHANGE_FOREIGN_NAME,EXCHANGE_FOREIGN_FULLNAME,COUNTRY_CODE,
+        EXCHANGE_SUFFIX_TEXT,DISPLAY_ORDER_NO,ROW_VERSION_NO,
+        LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

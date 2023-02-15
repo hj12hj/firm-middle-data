@@ -2,13 +2,12 @@ package com.ifohoo.firm25.ifms.middata.es.corp.core;
 
 import cn.easyes.core.biz.PageInfo;
 import cn.easyes.core.conditions.LambdaEsQueryWrapper;
-import cn.hutool.extra.spring.SpringUtil;
-import com.ifohoo.common.ifms.common.base.ReturnMessage;
-import com.ifohoo.common.ifms.common.enums.ErrorCodeEnum;
+import com.ifohoo.common.ifms.dto.PageDto;
 import com.ifohoo.firm25.ifms.middata.common.dto.core.MidDataOperation;
 import com.ifohoo.firm25.ifms.middata.common.dto.corp.CorpBasicDto;
 import com.ifohoo.firm25.ifms.middata.es.corp.domain.CorpBasic;
 import com.ifohoo.firm25.ifms.middata.es.corp.mapper.EsCorpBasicMapper;
+import com.ifohoo.firm25.ifms.middata.es.opetation.EsTemplate;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +22,24 @@ import java.util.stream.Collectors;
  * @time: 5:44 PM
  */
 @Component("corpBasicOperation")
-public class CorpBasicOperation implements MidDataOperation<CorpBasicDto, CorpBasic> {
+public class CorpBasicOperation implements MidDataOperation<CorpBasicDto> {
 
     @Autowired
     private EsCorpBasicMapper esCorpBasicMapper;
 
+    @Autowired
+    private EsTemplate esTemplate;
+
+    @Override
+    public void init() {
+        try {
+            esCorpBasicMapper.deleteIndex("corp_basic");
+            esCorpBasicMapper.createIndex();
+            esTemplate.setMaxResultWindow("corp_basic", 6000000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public boolean add(CorpBasicDto corpBasicDto) {
@@ -59,12 +71,46 @@ public class CorpBasicOperation implements MidDataOperation<CorpBasicDto, CorpBa
     }
 
     @Override
-    public List<CorpBasic> query(CorpBasicDto corpBasicDto) {
-        return null;
+    public List<CorpBasicDto> query(CorpBasicDto corpBasicDto) {
+        CorpBasic corpBasic = new CorpBasic();
+        BeanUtils.copyProperties(corpBasicDto, corpBasic);
+        LambdaEsQueryWrapper<CorpBasic> lambdaEsQueryWrapper = new LambdaEsQueryWrapper<>();
+        if (StringUtils.isNotBlank(corpBasic.getCorpName())) {
+            lambdaEsQueryWrapper.match(CorpBasic::getCorpName, corpBasic.getCorpName());
+        }
+        if (StringUtils.isNotBlank(corpBasic.getCorpCode())) {
+            lambdaEsQueryWrapper.eq(CorpBasic::getCorpCode, corpBasic.getCorpCode());
+        }
+        List<CorpBasic> corpBasicList = esCorpBasicMapper.selectList(lambdaEsQueryWrapper);
+
+        return corpBasicList.stream().map(corpBasic1 -> {
+            CorpBasicDto corpBasicDto1 = new CorpBasicDto();
+            BeanUtils.copyProperties(corpBasic1, corpBasicDto1);
+            return corpBasicDto1;
+        }).collect(Collectors.toList());
     }
 
     @Override
-    public List<CorpBasic> queryPage(CorpBasicDto corpBasicDto, int pageNum, int pageSize) {
-        return null;
+    public PageDto<CorpBasicDto> queryPage(CorpBasicDto corpBasicDto, int pageNum, int pageSize) {
+        CorpBasic corpBasic = new CorpBasic();
+        BeanUtils.copyProperties(corpBasicDto, corpBasic);
+        LambdaEsQueryWrapper<CorpBasic> lambdaEsQueryWrapper = new LambdaEsQueryWrapper<>();
+        if (StringUtils.isNotBlank(corpBasic.getCorpName())) {
+            lambdaEsQueryWrapper.match(CorpBasic::getCorpName, corpBasic.getCorpName());
+        }
+        if (StringUtils.isNotBlank(corpBasic.getCorpCode())) {
+            lambdaEsQueryWrapper.eq(CorpBasic::getCorpCode, corpBasic.getCorpCode());
+        }
+        PageInfo<CorpBasic> corpBasicPageInfo = esCorpBasicMapper.pageQuery(lambdaEsQueryWrapper, pageNum, pageSize);
+        List<CorpBasic> corpBasics = corpBasicPageInfo.getList();
+        long total = corpBasicPageInfo.getTotal();
+        PageDto<CorpBasicDto> pageDto = new PageDto<>();
+        pageDto.setTotal(total);
+        pageDto.setList(corpBasics.stream().map(corpBasic1 -> {
+            CorpBasicDto corpBasicDto1 = new CorpBasicDto();
+            BeanUtils.copyProperties(corpBasic1, corpBasicDto1);
+            return corpBasicDto1;
+        }).collect(Collectors.toList()));
+        return pageDto;
     }
 }

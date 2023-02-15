@@ -1,6 +1,7 @@
 package com.ifohoo.firm25.ifms.middata.common.dto.core;
 
 import com.ifohoo.common.ifms.common.base.ReturnMessage;
+import com.ifohoo.common.ifms.dto.PageDto;
 
 import java.util.List;
 
@@ -11,7 +12,14 @@ import java.util.List;
  * @date: 2023/2/14
  * @time: 5:12 PM
  */
-public interface MidDataOperation<T, R> {
+public interface MidDataOperation<T> {
+
+
+    /**
+     * 初始化操作
+     *
+     */
+    void init();
 
     /**
      * 增加操作
@@ -52,7 +60,7 @@ public interface MidDataOperation<T, R> {
      * @param t
      * @return
      */
-    List<R> query(T t);
+    List<T> query(T t);
 
 
     /**
@@ -63,5 +71,5 @@ public interface MidDataOperation<T, R> {
      * @param pageSize
      * @return
      */
-    List<R> queryPage(T t, int pageNum, int pageSize);
+    PageDto<T> queryPage(T t, int pageNum, int pageSize);
 }

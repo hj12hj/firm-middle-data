@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.corp.mapper.CorpCategoryStdDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.corp.domain.CorpCategoryStdDetail">
+            <id property="corpCategoryStdCode" column="CORP_CATEGORY_STD_CODE" jdbcType="VARCHAR"/>
+            <id property="corpCategoryCode" column="CORP_CATEGORY_CODE" jdbcType="VARCHAR"/>
+            <result property="corpCategoryName" column="CORP_CATEGORY_NAME" jdbcType="VARCHAR"/>
+            <result property="parentCorpCategoryCode" column="PARENT_CORP_CATEGORY_CODE" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        CORP_CATEGORY_STD_CODE,CORP_CATEGORY_CODE,CORP_CATEGORY_NAME,
+        PARENT_CORP_CATEGORY_CODE,ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,
+        LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

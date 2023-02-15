@@ -199,6 +199,7 @@ public class CorpBasicDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
     /**
      * 企业代码
      */

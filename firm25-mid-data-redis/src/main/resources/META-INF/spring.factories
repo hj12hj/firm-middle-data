@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ifohoo.firm25.ifms.middata.redis.config.MiddleDatatRedisConfig

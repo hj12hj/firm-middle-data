@@ -1,7 +1,7 @@
 package com.ifohoo.firm25.ifms.middata.es.secu.mapper;
 
 import cn.easyes.core.conditions.interfaces.BaseEsMapper;
-import com.ifohoo.firm25.ifms.middata.secu.domain.SecuCategory;
+import com.ifohoo.firm25.ifms.middata.es.secu.domain.SecuCategory;
 
 /**
 * @author hejie

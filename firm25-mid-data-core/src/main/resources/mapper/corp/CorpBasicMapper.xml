@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.corp.mapper.CorpBasicMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.corp.domain.CorpBasic">
+            <id property="corpCode" column="CORP_CODE" jdbcType="VARCHAR"/>
+            <result property="corpName" column="CORP_NAME" jdbcType="VARCHAR"/>
+            <result property="corpFullname" column="CORP_FULLNAME" jdbcType="VARCHAR"/>
+            <result property="corpForeignName" column="CORP_FOREIGN_NAME" jdbcType="VARCHAR"/>
+            <result property="corpForeignFullname" column="CORP_FOREIGN_FULLNAME" jdbcType="VARCHAR"/>
+            <result property="telephoneText" column="TELEPHONE_TEXT" jdbcType="VARCHAR"/>
+            <result property="faxText" column="FAX_TEXT" jdbcType="VARCHAR"/>
+            <result property="emailText" column="EMAIL_TEXT" jdbcType="VARCHAR"/>
+            <result property="websiteText" column="WEBSITE_TEXT" jdbcType="VARCHAR"/>
+            <result property="postCode" column="POST_CODE" jdbcType="VARCHAR"/>
+            <result property="creditCode" column="CREDIT_CODE" jdbcType="VARCHAR"/>
+            <result property="registerCode" column="REGISTER_CODE" jdbcType="VARCHAR"/>
+            <result property="organizationCode" column="ORGANIZATION_CODE" jdbcType="VARCHAR"/>
+            <result property="corpOperatingStatusCode" column="CORP_OPERATING_STATUS_CODE" jdbcType="VARCHAR"/>
+            <result property="establishedDate" column="ESTABLISHED_DATE" jdbcType="VARCHAR"/>
+            <result property="legalRepresentativeName" column="LEGAL_REPRESENTATIVE_NAME" jdbcType="VARCHAR"/>
+            <result property="boardSecretaryName" column="BOARD_SECRETARY_NAME" jdbcType="VARCHAR"/>
+            <result property="registerCapitalAmt" column="REGISTER_CAPITAL_AMT" jdbcType="DECIMAL"/>
+            <result property="paidCapitalAmt" column="PAID_CAPITAL_AMT" jdbcType="DECIMAL"/>
+            <result property="operatingDurText" column="OPERATING_DUR_TEXT" jdbcType="VARCHAR"/>
+            <result property="recordAuthorityName" column="RECORD_AUTHORITY_NAME" jdbcType="VARCHAR"/>
+            <result property="issueDate" column="ISSUE_DATE" jdbcType="VARCHAR"/>
+            <result property="registerAddressText" column="REGISTER_ADDRESS_TEXT" jdbcType="VARCHAR"/>
+            <result property="officeAddressText" column="OFFICE_ADDRESS_TEXT" jdbcType="VARCHAR"/>
+            <result property="operatingScopeText" column="OPERATING_SCOPE_TEXT" jdbcType="VARCHAR"/>
+            <result property="areaCode" column="AREA_CODE" jdbcType="VARCHAR"/>
+            <result property="corpTypeCode" column="CORP_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="corpScaleFlagCode" column="CORP_SCALE_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="corpLocalFlagCode" column="CORP_LOCAL_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="corpCityFlagCode" column="CORP_CITY_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="leiCode" column="LEI_CODE" jdbcType="VARCHAR"/>
+            <result property="thirdCorpCode" column="THIRD_CORP_CODE" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+            <result property="oldCorpCode" column="OLD_CORP_CODE" jdbcType="VARCHAR"/>
+            <result property="oldCorpNo" column="OLD_CORP_NO" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        CORP_CODE,CORP_NAME,CORP_FULLNAME,
+        CORP_FOREIGN_NAME,CORP_FOREIGN_FULLNAME,TELEPHONE_TEXT,
+        FAX_TEXT,EMAIL_TEXT,WEBSITE_TEXT,
+        POST_CODE,CREDIT_CODE,REGISTER_CODE,
+        ORGANIZATION_CODE,CORP_OPERATING_STATUS_CODE,ESTABLISHED_DATE,
+        LEGAL_REPRESENTATIVE_NAME,BOARD_SECRETARY_NAME,REGISTER_CAPITAL_AMT,
+        PAID_CAPITAL_AMT,OPERATING_DUR_TEXT,RECORD_AUTHORITY_NAME,
+        ISSUE_DATE,REGISTER_ADDRESS_TEXT,OFFICE_ADDRESS_TEXT,
+        OPERATING_SCOPE_TEXT,AREA_CODE,CORP_TYPE_CODE,
+        CORP_SCALE_FLAG_CODE,CORP_LOCAL_FLAG_CODE,CORP_CITY_FLAG_CODE,
+        LEI_CODE,THIRD_CORP_CODE,ROW_VERSION_NO,
+        LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME,OLD_CORP_CODE,
+        OLD_CORP_NO
+    </sql>
+    <select id="findAllPage" resultType="com.ifohoo.firm25.ifms.middata.core.corp.domain.CorpBasic">
+        select *
+        from corp_basic
+    </select>
+</mapper>

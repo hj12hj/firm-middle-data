@@ -4,7 +4,6 @@ import cn.easyes.starter.register.EsMapperScan;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.pagination.dialects.MySqlDialect;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @time: 12:21 PM
  */
 @Configuration
-@MapperScan("com.ifohoo.firm25.ifms.middata.**.sqlmapper")
+@MapperScan("com.ifohoo.firm25.ifms.middata.**.mapper")
 @EsMapperScan("com.ifohoo.firm25.ifms.middata.**.esmapper")
 public class MybatisPlusConfig {
 

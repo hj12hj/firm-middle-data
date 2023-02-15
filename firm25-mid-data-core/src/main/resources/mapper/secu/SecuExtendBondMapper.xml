@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.secu.mapper.SecuExtendBondMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.secu.domain.SecuExtendBond">
+            <id property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="issuerCategoryCode" column="ISSUER_CATEGORY_CODE" jdbcType="VARCHAR"/>
+            <result property="issuerLocalFlagCode" column="ISSUER_LOCAL_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="bondCreditFlagCode" column="BOND_CREDIT_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="issueTypeCode" column="ISSUE_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="bondFormFlagCode" column="BOND_FORM_FLAG_CODE" jdbcType="VARCHAR"/>
+            <result property="interestRateTypeCode" column="INTEREST_RATE_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="couponRate" column="COUPON_RATE" jdbcType="DECIMAL"/>
+            <result property="interestCalcTypeCode" column="INTEREST_CALC_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="interestDaysBasedCode" column="INTEREST_DAYS_BASED_CODE" jdbcType="VARCHAR"/>
+            <result property="interestStartDate" column="INTEREST_START_DATE" jdbcType="VARCHAR"/>
+            <result property="interestEndDate" column="INTEREST_END_DATE" jdbcType="VARCHAR"/>
+            <result property="foreCashDate" column="FORE_CASH_DATE" jdbcType="VARCHAR"/>
+            <result property="interestPayTypeCode" column="INTEREST_PAY_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="interestPayFreqCode" column="INTEREST_PAY_FREQ_CODE" jdbcType="VARCHAR"/>
+            <result property="interestPayDates" column="INTEREST_PAY_DATES" jdbcType="VARCHAR"/>
+            <result property="origSecuGlobalCode" column="ORIG_SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="creditDebtDate" column="CREDIT_DEBT_DATE" jdbcType="VARCHAR"/>
+            <result property="fundsUseText" column="FUNDS_USE_TEXT" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        SECU_GLOBAL_CODE,ISSUER_CATEGORY_CODE,ISSUER_LOCAL_FLAG_CODE,
+        BOND_CREDIT_FLAG_CODE,ISSUE_TYPE_CODE,BOND_FORM_FLAG_CODE,
+        INTEREST_RATE_TYPE_CODE,COUPON_RATE,INTEREST_CALC_TYPE_CODE,
+        INTEREST_DAYS_BASED_CODE,INTEREST_START_DATE,INTEREST_END_DATE,
+        FORE_CASH_DATE,INTEREST_PAY_TYPE_CODE,INTEREST_PAY_FREQ_CODE,
+        INTEREST_PAY_DATES,ORIG_SECU_GLOBAL_CODE,CREDIT_DEBT_DATE,
+        FUNDS_USE_TEXT,ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,
+        LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

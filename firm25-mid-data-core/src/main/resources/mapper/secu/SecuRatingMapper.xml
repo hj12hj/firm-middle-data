@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.secu.mapper.SecuRatingMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.secu.domain.SecuRating">
+            <id property="ratingNo" column="RATING_NO" jdbcType="DECIMAL"/>
+            <result property="publishDate" column="PUBLISH_DATE" jdbcType="VARCHAR"/>
+            <result property="ratingDate" column="RATING_DATE" jdbcType="VARCHAR"/>
+            <result property="secuGlobalCode" column="SECU_GLOBAL_CODE" jdbcType="VARCHAR"/>
+            <result property="ratingOrgCode" column="RATING_ORG_CODE" jdbcType="VARCHAR"/>
+            <result property="ratingCode" column="RATING_CODE" jdbcType="VARCHAR"/>
+            <result property="ratingOutlookText" column="RATING_OUTLOOK_TEXT" jdbcType="VARCHAR"/>
+            <result property="ratingStageCode" column="RATING_STAGE_CODE" jdbcType="VARCHAR"/>
+            <result property="ratingDirectionCode" column="RATING_DIRECTION_CODE" jdbcType="VARCHAR"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        RATING_NO,PUBLISH_DATE,RATING_DATE,
+        SECU_GLOBAL_CODE,RATING_ORG_CODE,RATING_CODE,
+        RATING_OUTLOOK_TEXT,RATING_STAGE_CODE,RATING_DIRECTION_CODE,
+        ROW_VERSION_NO,LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ifohoo.firm25.ifms.middata.core.corp.mapper.CorpHolderMapper">
+
+    <resultMap id="BaseResultMap" type="com.ifohoo.firm25.ifms.middata.core.corp.domain.CorpHolder">
+            <id property="holderNo" column="HOLDER_NO" jdbcType="DECIMAL"/>
+            <result property="changeDate" column="CHANGE_DATE" jdbcType="VARCHAR"/>
+            <result property="corpCode" column="CORP_CODE" jdbcType="VARCHAR"/>
+            <result property="holderName" column="HOLDER_NAME" jdbcType="VARCHAR"/>
+            <result property="holderTypeCode" column="HOLDER_TYPE_CODE" jdbcType="VARCHAR"/>
+            <result property="holderCorpCode" column="HOLDER_CORP_CODE" jdbcType="VARCHAR"/>
+            <result property="holdRatio" column="HOLD_RATIO" jdbcType="DECIMAL"/>
+            <result property="contDate" column="CONT_DATE" jdbcType="VARCHAR"/>
+            <result property="contAmt" column="CONT_AMT" jdbcType="DECIMAL"/>
+            <result property="paidDate" column="PAID_DATE" jdbcType="VARCHAR"/>
+            <result property="paidAmt" column="PAID_AMT" jdbcType="DECIMAL"/>
+            <result property="rowVersionNo" column="ROW_VERSION_NO" jdbcType="DECIMAL"/>
+            <result property="lastOperateStaffCode" column="LAST_OPERATE_STAFF_CODE" jdbcType="VARCHAR"/>
+            <result property="lastOperateDatetime" column="LAST_OPERATE_DATETIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        HOLDER_NO,CHANGE_DATE,CORP_CODE,
+        HOLDER_NAME,HOLDER_TYPE_CODE,HOLDER_CORP_CODE,
+        HOLD_RATIO,CONT_DATE,CONT_AMT,
+        PAID_DATE,PAID_AMT,ROW_VERSION_NO,
+        LAST_OPERATE_STAFF_CODE,LAST_OPERATE_DATETIME
+    </sql>
+</mapper>
