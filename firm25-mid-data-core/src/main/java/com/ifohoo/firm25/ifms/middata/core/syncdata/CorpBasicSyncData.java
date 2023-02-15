@@ -15,6 +15,7 @@ import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -38,6 +39,9 @@ public class CorpBasicSyncData implements SyncData {
     @Autowired
     private RedissonClient redissonClient;
 
+    @Value("${middle.data.type:es}")
+    private String middleDataType;
+
     /**
      * 企业基本信息操作 es或者其他
      */
@@ -46,7 +50,7 @@ public class CorpBasicSyncData implements SyncData {
 
     private MidDataOperation<CorpBasicDto> getMidDataOperation() {
         if (corpBasicMidDataOperation == null) {
-            corpBasicMidDataOperation = SpringUtil.getBean("corpBasicOperation", MidDataOperation.class);
+            corpBasicMidDataOperation = SpringUtil.getBean(middleDataType+"CorpBasicOperation", MidDataOperation.class);
         }
         if (corpBasicMidDataOperation == null) {
             throw new RuntimeException("未找到企业基本信息操作类");

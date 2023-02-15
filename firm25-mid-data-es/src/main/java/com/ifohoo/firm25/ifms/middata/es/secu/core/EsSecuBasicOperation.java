@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
  * @date: 2023/2/15
  * @time: 10:10 AM
  */
-@Component("secuBasicOperation")
-public class SecuBasicOperation implements MidDataOperation<SecuBasicDto> {
+@Component("esSecuBasicOperation")
+public class EsSecuBasicOperation implements MidDataOperation<SecuBasicDto> {
 
     @Autowired
     private EsSecuBasicMapper esSecuBasicMapper;

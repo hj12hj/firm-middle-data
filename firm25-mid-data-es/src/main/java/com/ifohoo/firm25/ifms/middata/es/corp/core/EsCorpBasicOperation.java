@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
  * @date: 2023/2/14
  * @time: 5:44 PM
  */
-@Component("corpBasicOperation")
-public class CorpBasicOperation implements MidDataOperation<CorpBasicDto> {
+@Component("esCorpBasicOperation")
+public class EsCorpBasicOperation implements MidDataOperation<CorpBasicDto> {
 
     @Autowired
     private EsCorpBasicMapper esCorpBasicMapper;

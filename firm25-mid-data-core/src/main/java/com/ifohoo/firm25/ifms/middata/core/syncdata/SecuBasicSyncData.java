@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -37,13 +38,15 @@ public class SecuBasicSyncData implements SyncData {
     @Autowired
     private RedissonClient redissonClient;
 
+    @Value("${middle.data.type:es}")
+    private String middleDataType;
 
     private MidDataOperation<SecuBasicDto> secuBasicMidDataOperation;
 
 
     private MidDataOperation<SecuBasicDto> getMidDataOperation() {
         if (secuBasicMidDataOperation == null) {
-            secuBasicMidDataOperation = SpringUtil.getBean("secuBasicOperation", MidDataOperation.class);
+            secuBasicMidDataOperation = SpringUtil.getBean(middleDataType+"SecuBasicOperation", MidDataOperation.class);
         }
         if (secuBasicMidDataOperation == null) {
             throw new RuntimeException("未找到证券基本信息操作类");

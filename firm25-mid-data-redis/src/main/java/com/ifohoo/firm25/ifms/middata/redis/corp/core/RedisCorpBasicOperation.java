@@ -18,8 +18,8 @@ import java.util.List;
  * @date: 2023/2/15
  * @time: 10:27 AM
  */
-@Component("corpBasicOperation")
-public class CorpBasicOperation implements MidDataOperation<CorpBasicDto> {
+@Component("redisCorpBasicOperation")
+public class RedisCorpBasicOperation implements MidDataOperation<CorpBasicDto> {
     @Override
     public void init() {
 
@@ -36,9 +36,9 @@ public class CorpBasicOperation implements MidDataOperation<CorpBasicDto> {
     }
 
     @Override
-    public boolean addAll(List<CorpBasicDto> t) {
-        t.stream().forEach(s1 -> {
-            redisTemplate.opsForList().leftPush("corp_basic", s1);
+    public boolean addAll(List<CorpBasicDto> corpBasicDtoList) {
+        corpBasicDtoList.stream().map(corpBasicDto -> JSONUtil.toJsonStr(corpBasicDto)).forEach(s -> {
+            redisTemplate.opsForList().leftPush("corp_basic", s);
         });
         return true;
     }
