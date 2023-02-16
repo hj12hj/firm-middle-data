@@ -24,10 +24,10 @@ import java.util.stream.Collectors;
 @Component("esCorpBasicOperation")
 public class EsCorpBasicOperation implements MidDataOperation<CorpBasicDto> {
 
-    @Autowired
+    @Autowired(required = false)
     private EsCorpBasicMapper esCorpBasicMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private EsTemplate esTemplate;
 
     @Override

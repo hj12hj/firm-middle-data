@@ -3,6 +3,7 @@ package com.ifohoo.firm25.ifms.middata.redis.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ifohoo.firm25.ifms.middata.redis.corp.core.RedisCorpBasicOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -52,5 +53,11 @@ public class MiddleDatatRedisConfig {
         template.afterPropertiesSet();
         return template;
     }
+
+//    @Bean("redisCorpBasicOperation")
+//    public RedisCorpBasicOperation esCorpBasicOperation() {
+//        return new RedisCorpBasicOperation();
+//    }
+
 
 }

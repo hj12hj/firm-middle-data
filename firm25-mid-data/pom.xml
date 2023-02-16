@@ -22,8 +22,8 @@
     </properties>
 
 
-    <name>ifms-es</name>
-    <description>ifms-es</description>
+    <name>ifms-middata-full</name>
+    <description>ifms-middata-full</description>
 
     <dependencies>
 
