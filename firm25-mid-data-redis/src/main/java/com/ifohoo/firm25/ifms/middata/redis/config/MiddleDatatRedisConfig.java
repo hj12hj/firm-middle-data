@@ -54,10 +54,6 @@ public class MiddleDatatRedisConfig {
         return template;
     }
 
-//    @Bean("redisCorpBasicOperation")
-//    public RedisCorpBasicOperation esCorpBasicOperation() {
-//        return new RedisCorpBasicOperation();
-//    }
 
 
 }

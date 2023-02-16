@@ -47,9 +47,9 @@ mybatis-plus:
   #批量注册指定包下的类
   type-aliases-package: com.ifohoo.firm25.ifms.middata..core.*.domain
 
-targetUrl:
-#  file:/Users/hejie/Desktop/firm-middle-data/firm25-mid-data-redis/target/firm25-mid-data-redis-1.0-SNAPSHOT.jar
-  file:/Users/hejie/Desktop/firm-middle-data/firm25-mid-data-es/target/firm25-mid-data-es-7.14.0.jar
+#targetUrl:
+##  file:/Users/hejie/Desktop/firm-middle-data/firm25-mid-data-redis/target/firm25-mid-data-redis-1.0-SNAPSHOT.jar
+#  file:/Users/hejie/Desktop/firm-middle-data/firm25-mid-data-es/target/firm25-mid-data-es-7.14.0.jar
 #spring:
 #  datasource:
 #    dynamic:

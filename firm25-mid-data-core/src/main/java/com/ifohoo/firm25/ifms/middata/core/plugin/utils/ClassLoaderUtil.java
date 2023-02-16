@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.List;
 
 /**
  * 自定义类加载器
@@ -17,7 +18,7 @@ public class ClassLoaderUtil {
 
     private final static Logger log = org.slf4j.LoggerFactory.getLogger(ClassLoaderUtil.class);
 
-    public static ClassLoader getClassLoader(String url) {
+    public static ClassLoader addPathAndGetClassLoader(String url) {
         try {
             Method method = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
             if (!method.isAccessible()) {
@@ -25,8 +26,26 @@ public class ClassLoaderUtil {
             }
             // 用于加载插件的类加载器 打包成jar必须用这个
             URLClassLoader classLoader = (URLClassLoader) Thread.currentThread().getContextClassLoader();
-//             URLClassLoader classLoader = new URLClassLoader(new URL[]{}, ClassLoader.getSystemClassLoader());
             method.invoke(classLoader, new URL(url));
+            return classLoader;
+        } catch (Exception e) {
+            log.error("getClassLoader-error", e);
+            return null;
+        }
+    }
+
+
+    public static ClassLoader addPathsAndGetClassLoader(List<String> urls) {
+        try {
+            Method method = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
+            if (!method.isAccessible()) {
+                method.setAccessible(true);
+            }
+            // 用于加载插件的类加载器 打包成jar必须用这个
+            URLClassLoader classLoader = (URLClassLoader) Thread.currentThread().getContextClassLoader();
+            for (String url : urls) {
+                method.invoke(classLoader, new URL(url));
+            }
             return classLoader;
         } catch (Exception e) {
             log.error("getClassLoader-error", e);
